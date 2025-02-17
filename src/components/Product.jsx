@@ -1,4 +1,5 @@
 import React from "react";
+import AddProduct from "./AddProduct";
 
 const Product = ({ onEdit, onDelete, product }) => {
   return (
@@ -8,7 +9,7 @@ const Product = ({ onEdit, onDelete, product }) => {
       <p>{product.description}</p>
       <p>{product.price}</p>
       <p>Status: {product.completed ? "completed" : "pending"}</p>
-      <button onClick={() => onEdit(product)}>Edit</button> 
+      <button onClick={() => onEdit(product)}>Edit</button>
       <button onClick={() => onDelete(product.id)}>Delete</button>
     </div>
   );

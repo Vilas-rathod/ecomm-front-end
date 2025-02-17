@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { deleteProductById, fetchProducts } from "../api-services/api";
+import { deleteProductById, fetchProducts, updateProductById } from "../api-services/api";
 import Product from "./Product";
 
-const List = ({ onEdit }) => {
+const List = ({onEdit}) => {
   const [product, setProducts] = useState([]);
 
   useEffect(() => {
@@ -18,13 +18,17 @@ const List = ({ onEdit }) => {
     await deleteProductById(id);
     loadProducts();
   };
+  const handleEdit = (product) => {
+    onEdit(product); // Pass product object to the parent component (App.js)
+  };
+  
   return (
     <div className="product-list">
       {product.map((product) => (
         <Product
           key={product.id}
           product={product}
-          onEdit={onEdit}
+          onEdit={handleEdit}
           onDelete={handleDelete}
         />
       ))}

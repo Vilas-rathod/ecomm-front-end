@@ -55,28 +55,7 @@ const AddProduct = ({ onSubmit, initialData = {} }) => {
           onChange={handleChange}
           required
         />
-        <input
-          type="number"
-          name="price"
-          placeholder="Price"
-          value={formData.price}
-          onChange={(e) =>
-            setFormData((prev) => ({
-              ...prev,
-              price: Math.max(0, e.target.value),
-            }))
-          }
-          required
-        />
-        <label>
-          <input
-            type="checkbox"
-            name="completed"
-            checked={formData.completed}
-            onChange={handleChange}
-          />
-          Completed
-        </label>
+             
         <button type="submit">Save</button>
       </form>
     </div>
